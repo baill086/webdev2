@@ -31,6 +31,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // FIXME: Add styling to markers
 // Use airport.png
+/*creating variable for the airport png*/
 var airportIcon = L.icon({
     iconUrl: 'airport.png',
     iconSize: [40,40]
@@ -41,7 +42,7 @@ var customLayer = L.geoJson(null  ,{
 	  return L.marker(latlng,{icon:airportIcon});
     }
 });
-
+/*adding the airport locations with the new custom layer markers*/
 var airportsLayer = omnivore.csv('airports.csv', null, customLayer);
 
 airportsLayer.addTo(map);
