@@ -26,6 +26,13 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     .addTo(map);
 
 // FIXME: Load CSV data into leaflet markers
+/*try to load csv*/
+omnivore.csv('/mapbox.js/assets/data/airports.csv').addTo(map);
 
 // FIXME: Add styling to markers
 // Use airport.png
+/*try and change the style*/
+layer.on({
+    'mousemove': function (e) {
+        //I want to make the point a red style ?
+        this.setStyle({fillColor:"#f00"});
