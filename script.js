@@ -26,6 +26,23 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     .addTo(map);
 
 // FIXME: Load CSV data into leaflet markers
+/*try to load csv*/
+
 
 // FIXME: Add styling to markers
 // Use airport.png
+/*creating variable for the airport png*/
+var airportIcon = L.icon({
+    iconUrl: 'airport.png',
+    iconSize: [40,40]
+});
+ /*adding custom layer as parameter to omnivore csv that allows us to specify custom icons*/
+var customLayer = L.geoJson(null  ,{
+    pointToLayer: function(feature,latlng){
+	  return L.marker(latlng,{icon:airportIcon});
+    }
+});
+/*adding the airport locations with the new custom layer markers*/
+var airportsLayer = omnivore.csv('airports.csv', null, customLayer);
+
+airportsLayer.addTo(map);
